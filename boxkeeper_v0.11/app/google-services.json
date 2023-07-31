@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "647441350683",
+    "firebase_url": "https://boxkeeper-f0938-default-rtdb.firebaseio.com",
+    "project_id": "boxkeeper-f0938",
+    "storage_bucket": "boxkeeper-f0938.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647441350683:android:211b3bd76c9feb44b9f8be",
+        "android_client_info": {
+          "package_name": "com.example.boxkeeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647441350683-jj7nvule54aetgdgt668vptp5lqlbq2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO_QDsoWhbb92r3kWZRHowZh_dQPLPvLE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647441350683-jj7nvule54aetgdgt668vptp5lqlbq2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
