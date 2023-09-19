@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Boxkeeper" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!--타이틀바 없애기-->
-        <item name="windowNoTitle">true</item>
+    <style name="Theme.Boxkeeper" parent="Theme.Material3.Light.NoActionBar">
+        <!--상태바 색상-->
+        <item name="android:statusBarColor">@color/point_navy</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
