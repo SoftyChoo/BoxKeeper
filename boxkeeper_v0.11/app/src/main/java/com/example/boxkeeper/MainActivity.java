@@ -20,7 +20,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import android.view.View;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sttext = (TextView) findViewById(R.id.statetext);
+        sttext = (TextView) findViewById(R.id.tv_box1_real_weight);
         infobtn = (ImageButton) findViewById(R.id.btn_info);
-        Weights = (TextView) findViewById(R.id.Weight);
-        Ab = (TextView) findViewById(R.id.Abs);
+        Weights = (TextView) findViewById(R.id.tv_box1_plus_minus);
+        Ab = (TextView) findViewById(R.id.tv_box1_abs);
 
         findViewById(R.id.btn_menu).setOnClickListener(new View.OnClickListener(){
             public void onClick(final View view){
