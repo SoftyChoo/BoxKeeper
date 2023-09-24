@@ -96,7 +96,23 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
+                    </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="30dp"
+                        androidx:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_siren1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/selector_siren"
+                            android:scaleType="center" />
                     </androidx.cardview.widget.CardView>
 
 
@@ -196,9 +212,24 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
-
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="30dp"
+                        androidx:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_siren2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/selector_siren"
+                            android:scaleType="center" />
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:id="@+id/tv_box2_weight"
@@ -297,6 +328,22 @@
 
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="30dp"
+                        androidx:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_siren3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/selector_siren"
+                            android:scaleType="center" />
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:id="@+id/tv_box3_weight"
@@ -392,9 +439,24 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
-
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="30dp"
+                        androidx:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/btn_siren4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/selector_siren"
+                            android:scaleType="center" />
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:id="@+id/tv_box4_weight"
@@ -481,7 +543,7 @@
             android:layout_height="match_parent">
 
 
-            <androidx.constraintlayout.utils.widget.ImageFilterButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btn_home"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -508,13 +570,13 @@
                 androidx:layout_constraintTop_toBottomOf="@id/btn_home"
                 androidx:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btn_call"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/transparent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/icon_call"
+                android:src="@drawable/icon_search_unclicked"
                 androidx:layout_constraintBottom_toTopOf="@id/tv_call"
                 androidx:layout_constraintEnd_toStartOf="@id/btn_search"
                 androidx:layout_constraintHorizontal_chainStyle="spread"
@@ -527,20 +589,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_call"
-                android:textColor="@color/black"
                 androidx:layout_constraintBottom_toBottomOf="parent"
                 androidx:layout_constraintEnd_toEndOf="@id/btn_call"
                 androidx:layout_constraintStart_toStartOf="@id/btn_call"
                 androidx:layout_constraintTop_toBottomOf="@id/btn_call"
                 androidx:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btn_search"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/transparent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/icon_search"
+                android:src="@drawable/icon_search_unclicked"
                 androidx:layout_constraintBottom_toTopOf="@id/tv_search"
                 androidx:layout_constraintEnd_toStartOf="@id/btn_list"
                 androidx:layout_constraintHorizontal_chainStyle="spread"
@@ -553,21 +614,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_search"
-                android:textColor="@color/black"
                 androidx:layout_constraintBottom_toBottomOf="parent"
                 androidx:layout_constraintEnd_toEndOf="@id/btn_search"
                 androidx:layout_constraintStart_toStartOf="@id/btn_search"
                 androidx:layout_constraintTop_toBottomOf="@id/btn_search"
                 androidx:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btn_list"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@color/transparent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/icon_list"
+                android:src="@drawable/icon_list_unclicked"
                 androidx:layout_constraintBottom_toTopOf="@id/tv_list"
                 androidx:layout_constraintEnd_toEndOf="parent"
                 androidx:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -580,7 +640,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_list"
-                android:textColor="@color/black"
                 androidx:layout_constraintBottom_toBottomOf="parent"
                 androidx:layout_constraintEnd_toEndOf="@id/btn_list"
                 androidx:layout_constraintStart_toStartOf="@id/btn_list"
