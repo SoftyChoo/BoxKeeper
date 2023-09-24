@@ -11,5 +11,6 @@
     <color name="background_white_grey">#ECEDED</color>
     <color name="point_blue">#3F80D6</color>
     <color name="point_navy">#121250</color>
+    <color name="btn_grey">#5A5A5A</color>
     <color name="point_light_green">#CDDC39</color>
 </resources>
