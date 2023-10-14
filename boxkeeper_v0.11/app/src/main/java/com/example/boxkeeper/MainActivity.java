@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTab() {
+
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -179,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, CallActivity.class);
+                intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
             }
         });
@@ -186,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
             }
         });
@@ -193,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
             }
         });
