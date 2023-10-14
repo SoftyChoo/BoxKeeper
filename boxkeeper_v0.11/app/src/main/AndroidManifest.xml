@@ -11,13 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boxkeeper"
         tools:targetApi="31">
-
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".UserCommand"/>
-        <activity android:name=".Delivery"/>
-        <activity android:name=".BoxLog"/>
-        <activity android:name=".InfoDialog"
-            android:theme="@style/PopupTheme"/>
+        <activity
+            android:name=".ListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CallActivity"
+            android:exported="false" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".UserCommand" />
+        <activity android:name=".Delivery" />
+        <activity android:name=".BoxLog" />
+        <activity
+            android:name=".InfoDialog"
+            android:theme="@style/PopupTheme" />
         <activity
             android:name=".SplachScreen"
             android:exported="true"

@@ -30,11 +30,16 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton infobtn;
     private TextView Weights;
     private TextView Ab;
-    private String changestate;
+    private String changeState;
     private ImageButton sirenBox1;
     private ImageButton sirenBox2;
     private ImageButton sirenBox3;
     private ImageButton sirenBox4;
+
+    private ImageButton homeButton;
+    private ImageButton callButton;
+    private ImageButton searchButton;
+    private ImageButton listButton;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference state_of_the_box = mRootRef.child("State_of_the_Box");
@@ -54,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         sirenBox2 = (ImageButton) findViewById(R.id.btn_siren2);
         sirenBox3 = (ImageButton) findViewById(R.id.btn_siren3);
         sirenBox4 = (ImageButton) findViewById(R.id.btn_siren4);
+
+        homeButton = (ImageButton) findViewById(R.id.btn_home_main);
+        callButton= (ImageButton) findViewById(R.id.btn_call_main);
+        searchButton = (ImageButton) findViewById(R.id.btn_search_main);
+        listButton = (ImageButton) findViewById(R.id.btn_list_main);
 
         findViewById(R.id.btn_menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(final View view) {
@@ -94,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         initSiren();
+        initTab();
 
         state_of_the_box.addValueEventListener(new ValueEventListener() {
             @Override
@@ -110,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     sttext.setText(state);
                 }
-                changestate = state;
+                changeState = state;
                 showNotification();
             }
 
@@ -155,6 +166,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initTab() {
+        homeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+               //동작없음
+            }
+        });
+        callButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, CallActivity.class);
+                startActivity(intent);
+            }
+        });
+        searchButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        listButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initSiren() {
@@ -213,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "CHANNEL_ID")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("BOXKEEPER값이 변경됨")
-                .setContentText("BOXKEEPER값이 " + changestate + "로 변경되었습니다.")
+                .setContentText("BOXKEEPER값이 " + changeState + "로 변경되었습니다.")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         // 알림 표시
