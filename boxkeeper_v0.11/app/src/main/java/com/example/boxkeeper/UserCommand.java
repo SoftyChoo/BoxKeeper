@@ -24,8 +24,6 @@ public class UserCommand extends AppCompatActivity {
     private Button button;
     private ImageButton infobtn;
 
-
-
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("usercommand");
 
