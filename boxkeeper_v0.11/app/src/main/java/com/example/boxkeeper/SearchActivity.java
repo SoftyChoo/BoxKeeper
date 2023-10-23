@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.boxkeeper.call.CallActivity;
 import com.example.boxkeeper.databinding.ActivitySearchBinding;
 
 public class SearchActivity extends AppCompatActivity {

@@ -54,10 +54,10 @@
             app:layout_constraintBottom_toBottomOf="@id/card_view"
             android:text="Plz Input Simple Memo"/>
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_call"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

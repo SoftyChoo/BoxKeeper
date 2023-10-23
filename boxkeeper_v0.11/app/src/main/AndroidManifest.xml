@@ -18,7 +18,7 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".CallActivity"
+            android:name=".call.CallActivity"
             android:exported="false" />
         <activity android:name=".MainActivity" />
         <activity android:name=".UserCommand" />
