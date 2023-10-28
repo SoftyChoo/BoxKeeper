@@ -25,7 +25,7 @@
         <activity
             android:name=".call.CallActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".main.MainActivity" />
         <activity android:name=".UserCommand" />
         <activity android:name=".Delivery" />
         <activity android:name=".BoxLog" />

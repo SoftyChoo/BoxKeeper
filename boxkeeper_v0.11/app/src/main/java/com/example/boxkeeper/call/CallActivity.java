@@ -9,13 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.boxkeeper.ListActivity;
-import com.example.boxkeeper.MainActivity;
 import com.example.boxkeeper.R;
 import com.example.boxkeeper.SearchActivity;
 import com.example.boxkeeper.SlideKey;
@@ -23,9 +21,7 @@ import com.example.boxkeeper.common.Key;
 import com.example.boxkeeper.common.Utils;
 import com.example.boxkeeper.databinding.ActivityCallBinding;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class CallActivity extends AppCompatActivity {
 

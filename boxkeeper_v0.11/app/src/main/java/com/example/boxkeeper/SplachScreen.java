@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.boxkeeper.main.MainActivity;
+
 public class SplachScreen extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class SplachScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplachScreen.this,MainActivity.class));
+                startActivity(new Intent(SplachScreen.this, MainActivity.class));
                 finish();
             }
         },2000);

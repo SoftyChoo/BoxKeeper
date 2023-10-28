@@ -3,13 +3,21 @@ package com.example.boxkeeper.common;
 import static com.example.boxkeeper.common.Key.REQUEST_PHONE_CALL;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.Manifest;
+import android.widget.Toast;
+
+import com.example.boxkeeper.R;
 
 public class Utils {
     private static String TAG = "Utils";
@@ -25,5 +33,4 @@ public class Utils {
         }
         activity.startActivity(callIntent);
     }
-
 }
