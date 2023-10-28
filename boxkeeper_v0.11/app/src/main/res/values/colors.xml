@@ -15,4 +15,5 @@
     <color name="point_light_green">#CDDC39</color>
 
     <color name="fab_ripple_color">#8790C9</color>
+    <color name="common_edit_text">#979797</color>
 </resources>
