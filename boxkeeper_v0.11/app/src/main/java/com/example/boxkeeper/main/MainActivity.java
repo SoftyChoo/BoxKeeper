@@ -1,22 +1,30 @@
-package com.example.boxkeeper;
+package com.example.boxkeeper.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.example.boxkeeper.BoxLog;
+import com.example.boxkeeper.Delivery;
+import com.example.boxkeeper.InfoDialog;
+import com.example.boxkeeper.ListActivity;
+import com.example.boxkeeper.R;
+import com.example.boxkeeper.SearchActivity;
+import com.example.boxkeeper.SlideKey;
+import com.example.boxkeeper.UserCommand;
 import com.example.boxkeeper.call.CallActivity;
-import com.example.boxkeeper.call.CallModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -26,10 +34,6 @@ import com.google.firebase.database.DatabaseError;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         sirenBox4 = (ImageButton) findViewById(R.id.btn_siren4);
 
         homeButton = (ImageButton) findViewById(R.id.btn_home_main);
-        callButton= (ImageButton) findViewById(R.id.btn_call_main);
+        callButton = (ImageButton) findViewById(R.id.btn_call_main);
         searchButton = (ImageButton) findViewById(R.id.btn_search_main);
         listButton = (ImageButton) findViewById(R.id.btn_list_main);
 
@@ -177,31 +181,31 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTab() {
 
-        homeButton.setOnClickListener(new View.OnClickListener(){
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-               //동작없음
+            public void onClick(View v) {
+                //동작없음
             }
         });
-        callButton.setOnClickListener(new View.OnClickListener(){
+        callButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CallActivity.class);
                 intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
             }
         });
-        searchButton.setOnClickListener(new View.OnClickListener(){
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
             }
         });
-        listButton.setOnClickListener(new View.OnClickListener(){
+        listButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_RIGHT);
                 startActivity(intent);
@@ -213,53 +217,60 @@ public class MainActivity extends AppCompatActivity {
         sirenBox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sirenBox1.isSelected()){
-                    sirenBox1.setSelected(false);
-                }
-                else{
-                    sirenBox1.setSelected(true);
-                }
-                Toast.makeText(MainActivity.this, "siren", Toast.LENGTH_SHORT).show();
+                sirenDialog(1);
             }
         });
         sirenBox2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sirenBox2.isSelected()){
-                    sirenBox2.setSelected(false);
-                }
-                else{
-                    sirenBox2.setSelected(true);
-                }
-                Toast.makeText(MainActivity.this, "siren", Toast.LENGTH_SHORT).show();
+                sirenDialog(2);
             }
         });
         sirenBox3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sirenBox3.isSelected()){
-                    sirenBox3.setSelected(false);
-                }
-                else{
-                    sirenBox3.setSelected(true);
-                }
-                Toast.makeText(MainActivity.this, "siren", Toast.LENGTH_SHORT).show();
+                sirenDialog(3);
             }
         });
         sirenBox4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sirenBox4.isSelected()){
-                    sirenBox4.setSelected(false);
-                }
-                else{
-                    sirenBox4.setSelected(true);
-                }
-                Toast.makeText(MainActivity.this, "siren", Toast.LENGTH_SHORT).show();
+                sirenDialog(4);
             }
         });
     }
 
+    void sirenDialog(Integer num) {
+        AlertDialog.Builder menu = new AlertDialog.Builder(MainActivity.this);
+        menu.setIcon(R.mipmap.ic_launcher);
+        menu.setTitle("BOXKEEPER"); // 제목
+        menu.setMessage(num+"번째 상자 사이렌의 상태를 변경하시겠습니까?"); // 문구
+        menu.setIcon(R.drawable.box);
+
+        // 확인 버튼
+        menu.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (num) {
+                    case 1 : sirenBox1.setSelected(!sirenBox1.isSelected()); break;
+                    case 2 : sirenBox2.setSelected(!sirenBox2.isSelected()); break;
+                    case 3 : sirenBox3.setSelected(!sirenBox3.isSelected()); break;
+                    case 4 : sirenBox4.setSelected(!sirenBox4.isSelected()); break;
+                }
+                dialog.dismiss();
+            }
+        });
+
+        // 취소 버튼
+        menu.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // dialog 제거
+                dialog.dismiss();
+            }
+        });
+        menu.show();
+    }
 
     private void showNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "CHANNEL_ID")
