@@ -13,9 +13,11 @@ import java.util.List;
 public class CallSharedViewModel extends ViewModel {
 
     public static List<CallModel> commonList = new ArrayList<>(Arrays.asList(
-            new CallModel("추민수", "상가 건물주", "01012345678"),
-            new CallModel("박수민", "아파트 경비실", "01098765432"),
-            new CallModel("김건희", "아파트 관리사무서", "01022330000")
+            new CallModel("추민수", "[Box 3]00상가 건물주", "01028179282"),
+            new CallModel("박수민", "[Box 1]00상가 경비원 ", "010"),
+            new CallModel("김광오", "[Box 2]00오피스텔 관리인", "01036481285"),
+            new CallModel("김건희", "[Box 4]00아파트 경비", "01091421163"),
+            new CallModel("이진영", "[Box 4]00아파트 관리사무서", "01065889271")
     ));
 
     private String TAG = "CallSharedViewModel";
