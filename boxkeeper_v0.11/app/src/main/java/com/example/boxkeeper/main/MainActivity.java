@@ -21,7 +21,7 @@ import com.example.boxkeeper.Delivery;
 import com.example.boxkeeper.InfoDialog;
 import com.example.boxkeeper.ListActivity;
 import com.example.boxkeeper.R;
-import com.example.boxkeeper.SearchActivity;
+import com.example.boxkeeper.search.SearchActivity;
 import com.example.boxkeeper.SlideKey;
 import com.example.boxkeeper.UserCommand;
 import com.example.boxkeeper.call.CallActivity;
@@ -33,7 +33,6 @@ import com.google.firebase.database.DatabaseError;
 
 import android.view.View;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 

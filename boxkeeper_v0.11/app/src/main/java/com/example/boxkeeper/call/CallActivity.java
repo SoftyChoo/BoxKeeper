@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.boxkeeper.ListActivity;
 import com.example.boxkeeper.R;
-import com.example.boxkeeper.SearchActivity;
+import com.example.boxkeeper.search.SearchActivity;
 import com.example.boxkeeper.SlideKey;
 import com.example.boxkeeper.common.Key;
 import com.example.boxkeeper.common.Utils;

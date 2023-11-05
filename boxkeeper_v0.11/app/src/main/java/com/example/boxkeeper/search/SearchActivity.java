@@ -1,4 +1,4 @@
-package com.example.boxkeeper;
+package com.example.boxkeeper.search;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.boxkeeper.ListActivity;
+import com.example.boxkeeper.R;
+import com.example.boxkeeper.SlideKey;
 import com.example.boxkeeper.call.CallActivity;
 import com.example.boxkeeper.databinding.ActivitySearchBinding;
 
 public class SearchActivity extends AppCompatActivity {
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
