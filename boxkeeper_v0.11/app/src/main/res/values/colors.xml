@@ -13,7 +13,7 @@
     <color name="point_navy">#121250</color>
     <color name="btn_grey">#5A5A5A</color>
     <color name="point_light_green">#CDDC39</color>
-
+    <color name="light_blue">#D0D6FD</color>
     <color name="fab_ripple_color">#8790C9</color>
     <color name="common_edit_text">#979797</color>
 </resources>
