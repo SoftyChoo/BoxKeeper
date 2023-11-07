@@ -9,6 +9,7 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,6 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Boxkeeper"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".ListActivity"
@@ -26,6 +28,9 @@
             android:exported="false" />
         <activity
             android:name=".call.CallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CameraActivity"
             android:exported="false" />
         <activity android:name=".main.MainActivity" />
         <activity android:name=".UserCommand" />

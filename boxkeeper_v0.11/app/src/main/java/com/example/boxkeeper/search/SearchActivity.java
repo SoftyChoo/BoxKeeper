@@ -42,7 +42,7 @@ public class SearchActivity extends AppCompatActivity {
         } else if (slideKey.equals(SlideKey.SLIDE_LEFT)) {
             overridePendingTransition(R.anim.from_left_enter, R.anim.to_right_exit);
         }
-        
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://info.sweettracker.co.kr/")
                 .addConverterFactory(GsonConverterFactory.create())

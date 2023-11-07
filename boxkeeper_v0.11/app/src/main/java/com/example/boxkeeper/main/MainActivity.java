@@ -1,13 +1,17 @@
 package com.example.boxkeeper.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.boxkeeper.BoxLog;
+import com.example.boxkeeper.CameraActivity;
 import com.example.boxkeeper.Delivery;
 import com.example.boxkeeper.InfoDialog;
 import com.example.boxkeeper.ListActivity;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton sirenBox2;
     private ImageButton sirenBox3;
     private ImageButton sirenBox4;
+
+    private CardView boxStateCamera1;
 
     private ImageButton homeButton;
     private ImageButton callButton;
@@ -75,30 +82,14 @@ public class MainActivity extends AppCompatActivity {
         searchButton = (ImageButton) findViewById(R.id.btn_search_main);
         listButton = (ImageButton) findViewById(R.id.btn_list_main);
 
-        findViewById(R.id.btn_menu).setOnClickListener(new View.OnClickListener() {
-            public void onClick(final View view) {
-                final PopupMenu popupMenu = new PopupMenu(getApplicationContext(), view);
-                getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        if (menuItem.getItemId() == R.id.action_menu1) {
-                            Intent intent = new Intent(MainActivity.this, UserCommand.class);
-                            startActivity(intent);
-                        } else if (menuItem.getItemId() == R.id.action_menu2) {
-                            Intent intent = new Intent(MainActivity.this, Delivery.class);
-                            startActivity(intent);
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, BoxLog.class);
-                            startActivity(intent);
-                        }
+        boxStateCamera1 = (CardView) findViewById(R.id.cv_box1_img);
 
-                        return false;
-                    }
-                });
-                popupMenu.show();
+        boxStateCamera1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
+                startActivity(intent);
             }
-
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -243,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder menu = new AlertDialog.Builder(MainActivity.this);
         menu.setIcon(R.mipmap.ic_launcher);
         menu.setTitle("BOXKEEPER"); // 제목
-        menu.setMessage(num+"번째 상자 사이렌의 상태를 변경하시겠습니까?"); // 문구
+        menu.setMessage(num + "번째 상자 사이렌의 상태를 변경하시겠습니까?"); // 문구
         menu.setIcon(R.drawable.box);
 
         // 확인 버튼
@@ -251,10 +242,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (num) {
-                    case 1 : sirenBox1.setSelected(!sirenBox1.isSelected()); break;
-                    case 2 : sirenBox2.setSelected(!sirenBox2.isSelected()); break;
-                    case 3 : sirenBox3.setSelected(!sirenBox3.isSelected()); break;
-                    case 4 : sirenBox4.setSelected(!sirenBox4.isSelected()); break;
+                    case 1:
+                        sirenBox1.setSelected(!sirenBox1.isSelected());
+                        break;
+                    case 2:
+                        sirenBox2.setSelected(!sirenBox2.isSelected());
+                        break;
+                    case 3:
+                        sirenBox3.setSelected(!sirenBox3.isSelected());
+                        break;
+                    case 4:
+                        sirenBox4.setSelected(!sirenBox4.isSelected());
+                        break;
                 }
                 dialog.dismiss();
             }
