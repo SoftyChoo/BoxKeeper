@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.boxkeeper.ListActivity;
 import com.example.boxkeeper.R;
-import com.example.boxkeeper.SearchActivity;
+import com.example.boxkeeper.search.SearchActivity;
 import com.example.boxkeeper.SlideKey;
 import com.example.boxkeeper.common.Key;
 import com.example.boxkeeper.common.Utils;
@@ -64,13 +64,11 @@ public class CallActivity extends AppCompatActivity {
         ActivityCallBinding binding = ActivityCallBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        viewModel = new ViewModelProvider(this, new CallViewModelFactoty())
-                .get(CallSharedViewModel.class);
+        viewModel = new ViewModelProvider(this).get(CallSharedViewModel.class);
 
         initTab(binding);
         initView(binding);
         initViewModel(binding);
-        listAdapter.submitList(CallSharedViewModel.commonList);
     }
 
     private void initViewModel(ActivityCallBinding binding) {
@@ -80,9 +78,9 @@ public class CallActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "옵저빙", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "listObserve : " + callModels);
                 listAdapter.submitList(callModels);
+                listAdapter.notifyDataSetChanged();
             }
         });
-
     }
 
     private void initView(ActivityCallBinding binding) {
@@ -137,7 +135,7 @@ public class CallActivity extends AppCompatActivity {
         binding.ivCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listAdapter.submitList(CallSharedViewModel.commonList);
+
             }
         });
         binding.btnSearchCall.setOnClickListener(new View.OnClickListener() {

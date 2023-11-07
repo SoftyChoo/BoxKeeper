@@ -36,8 +36,10 @@ public class CallEditFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this, new CallViewModelFactoty())
-                .get(CallSharedViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(CallSharedViewModel.class);
+
+//        viewModel = new ViewModelProvider(this, new CallViewModelFactoty())
+//                .get(CallSharedViewModel.class);
     }
 
     @Override
@@ -46,21 +48,10 @@ public class CallEditFragment extends DialogFragment {
         binding = FragmentCallEditBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         initView(binding);
-        initViewModel(binding);
 
         return view;
     }
 
-    private void initViewModel(FragmentCallEditBinding binding) {
-        viewModel.callItem.observe(getViewLifecycleOwner(), new Observer<CallModel>() {
-            @Override
-            public void onChanged(CallModel callModel) {
-                binding.etName.setText(callModel.getTitle());
-                binding.etPhoneNumber.setText(callModel.getPhoneNumber());
-                binding.etDescription.setText(callModel.getDescription());
-            }
-        });
-    }
 
     private void initView(FragmentCallEditBinding binding) {
 
@@ -132,15 +123,10 @@ public class CallEditFragment extends DialogFragment {
 
 
     private void addCallList(CallModel callModel) {
-//        MainActivity.commonList.add(callModel);
-        CallSharedViewModel.commonList.add(callModel);
-
-//        viewModel.addToCallList(callModel);
+        viewModel.addToCallList(callModel);
     }
 
     private void EditCallList(CallModel callModel, Integer position) {
-//        MainActivity.commonList.set(position,callModel);
-        CallSharedViewModel.commonList.set(position, callModel);
         viewModel.EditToCallList(callModel, position);
     }
 
