@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 import com.example.boxkeeper.BoxLog;
 import com.example.boxkeeper.CameraActivity;
-import com.example.boxkeeper.Delivery;
 import com.example.boxkeeper.InfoDialog;
 import com.example.boxkeeper.ListActivity;
 import com.example.boxkeeper.R;
