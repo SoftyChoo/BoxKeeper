@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 // API Response(Call)를 파싱할 모델 클래스
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class TrackingInfo {
     @SerializedName("adUrl")
     private String adUrl;
@@ -12,11 +14,17 @@ public class TrackingInfo {
     @SerializedName("complete")
     private boolean complete;
 
-    @SerializedName("completeYN")
+    @SerializedName("completeYN") // 배송 상태
     private String completeYN;
 
-    @SerializedName("estimate")
+    @SerializedName("estimate") // 배송시간
     private String estimate;
+
+    @SerializedName("level") // 배송 상태 level
+    private int level;
+
+    @SerializedName("trackingDetails") // 디테일들 구현
+    private List<TrackingDetail> trackingDetails;
 
     @SerializedName("invoiceNo")
     private String invoiceNo;
@@ -27,8 +35,6 @@ public class TrackingInfo {
     @SerializedName("itemName")
     private String itemName;
 
-    @SerializedName("level")
-    private int level;
 
     @SerializedName("orderNumber")
     private String orderNumber;
@@ -68,6 +74,7 @@ public class TrackingInfo {
     public String getEstimate() {
         return estimate;
     }
+    public List<TrackingDetail> getTrackingDetails() {return trackingDetails;}
 
     public String getInvoiceNo() {
         return invoiceNo;
