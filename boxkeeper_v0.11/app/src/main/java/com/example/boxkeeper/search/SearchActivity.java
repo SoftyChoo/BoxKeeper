@@ -34,7 +34,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchActivity extends AppCompatActivity {
     private SweetTrackerService sweetTrackerService;
-
     private final SearchListAdapter listAdapter = new SearchListAdapter();
 
     @Override
@@ -230,6 +229,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void setVisibilitySearch(ActivitySearchBinding binding){
         binding.spinner.setVisibility(View.INVISIBLE);
