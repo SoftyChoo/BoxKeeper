@@ -25,6 +25,8 @@ import com.example.boxkeeper.CameraActivity;
 import com.example.boxkeeper.InfoDialog;
 import com.example.boxkeeper.ListActivity;
 import com.example.boxkeeper.R;
+import com.example.boxkeeper.databinding.ActivityMainBinding;
+import com.example.boxkeeper.databinding.ActivitySearchBinding;
 import com.example.boxkeeper.search.SearchActivity;
 import com.example.boxkeeper.SlideKey;
 import com.example.boxkeeper.UserCommand;
@@ -37,6 +39,7 @@ import com.google.firebase.database.DatabaseError;
 
 import android.view.View;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,10 +65,13 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference Weight = mRootRef.child("Weight");
     DatabaseReference Abs = mRootRef.child("Abs");
 
+    private static final String FIREBASE_DATABASE_URL = "https://boxkeeper-f0938-default-rtdb.firebaseio.com/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         sttext = (TextView) findViewById(R.id.tv_box1_real_weight);
         infobtn = (ImageButton) findViewById(R.id.btn_info);
@@ -229,6 +235,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public static void updateBuzzerValue(int newValue) {
+        // Firebase 데이터베이스에 연결
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference buzzerRef = database.getReference("Buzzer");
+
+        // "Buzzer" 테이블의 값을 변경
+        buzzerRef.setValue(newValue);
+    }
+
     void sirenDialog(Integer num) {
         AlertDialog.Builder menu = new AlertDialog.Builder(MainActivity.this);
         menu.setIcon(R.mipmap.ic_launcher);
@@ -241,9 +256,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (num) {
-                    case 1:
+                    case 1: {
+                        if(sirenBox1.isSelected()) updateBuzzerValue(0); else updateBuzzerValue(1);
                         sirenBox1.setSelected(!sirenBox1.isSelected());
                         break;
+                    }
                     case 2:
                         sirenBox2.setSelected(!sirenBox2.isSelected());
                         break;
