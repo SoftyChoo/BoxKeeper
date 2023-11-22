@@ -12,7 +12,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         androidx:layout_constraintEnd_toEndOf="parent"
         androidx:layout_constraintStart_toStartOf="parent"
@@ -31,16 +31,6 @@
         androidx:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="추후 알림상태, 변화 목록 미리보기 추가 예정"
-        android:layout_margin="30dp"
-        android:textColor="@color/black"
-        androidx:layout_constraintEnd_toEndOf="parent"
-        androidx:layout_constraintStart_toStartOf="parent"
-        androidx:layout_constraintTop_toBottomOf="@+id/tv_boxkeeper" />
-
     <ImageButton
         android:id="@+id/btn_info"
         android:layout_width="30dp"
@@ -49,20 +39,8 @@
         android:background="#00ff0000"
         android:scaleType="centerCrop"
         android:src="@drawable/baseline_info_24"
-        androidx:layout_constraintBottom_toBottomOf="@+id/btn_menu"
-        androidx:layout_constraintEnd_toStartOf="@+id/btn_menu"
-        androidx:layout_constraintTop_toTopOf="@+id/btn_menu" />
-
-    <ImageButton
-        android:id="@+id/btn_menu"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:background="#00ff0000"
-        android:scaleType="centerCrop"
-        android:src="@drawable/baseline_menu_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        androidx:layout_constraintEnd_toEndOf="parent"
+        androidx:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/sv_main"
@@ -111,10 +89,10 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:cardCornerRadius="30dp"
+                        android:layout_margin="10dp"
                         androidx:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_margin="10dp">
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:id="@+id/btn_siren1"
@@ -227,10 +205,10 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:cardCornerRadius="30dp"
+                        android:layout_margin="10dp"
                         androidx:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_margin="10dp">
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:id="@+id/btn_siren2"
@@ -341,10 +319,10 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:cardCornerRadius="30dp"
+                        android:layout_margin="10dp"
                         androidx:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_margin="10dp">
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:id="@+id/btn_siren3"
@@ -454,10 +432,10 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:cardCornerRadius="30dp"
+                        android:layout_margin="10dp"
                         androidx:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_margin="10dp">
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:id="@+id/btn_siren4"
