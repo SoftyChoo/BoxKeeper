@@ -172,31 +172,38 @@ public class SearchActivity extends AppCompatActivity {
                                         case 1:{
                                             binding.ivLevel1.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level1_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level1_color));
-                                            binding.tvStateDelivery.setText("배송준비중");}
+                                            binding.tvStateDelivery.setText("배송준비중");
+                                            break;
+                                        }
                                         case 2: {
                                             binding.ivLevel2.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level2_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level2_color));
                                             binding.tvStateDelivery.setText("집화완료");
+                                            break;
                                         }
                                         case 3: {
                                             binding.ivLevel3.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level3_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level3_color));
                                             binding.tvStateDelivery.setText("배송중");
+                                            break;
                                         }
                                         case 4: {
                                             binding.ivLevel4.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level4_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level4_color));
                                             binding.tvStateDelivery.setText("지점도착");
+                                            break;
                                         }
                                         case 5: {
                                             binding.ivLevel5.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level5_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level5_color));
                                             binding.tvStateDelivery.setText("배송출발");
+                                            break;
                                         }
                                         case 6: {
                                             binding.ivLevel6.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level6_color));
                                             binding.ivState.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_level6_color));
                                             binding.tvStateDelivery.setText("배송완료");
+                                            break;
                                         }
                                     }
 

@@ -2,8 +2,6 @@ package com.example.boxkeeper.ui.list;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class ImageModel implements Parcelable {
     private String imageUrl;
