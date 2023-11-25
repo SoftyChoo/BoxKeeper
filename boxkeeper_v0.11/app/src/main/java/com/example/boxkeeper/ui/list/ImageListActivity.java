@@ -49,21 +49,11 @@ public class ImageListActivity extends AppCompatActivity {
     }
 
     private void initViewModel(ActivityImageListBinding binding) {
-//        viewModel.getImageListLiveData().observe(this, new Observer<List<ImageModel>>() {
-//            @Override
-//            public void onChanged(List<ImageModel> imageModels) {
-//                // Update the list in the adapter
-//                listAdapter.submitList(imageModels);
-//            }
-//        });
 
-        // Observe the LiveData
         viewModel.getImageListLiveData().observe(this, imageModels -> {
-            // Update your adapter with the new list of ImageModels
             listAdapter.submitList(imageModels);
+            binding.progressBar.setVisibility(View.GONE);
         });
-
-//        viewModel.loadImageModels();
     }
 
     public void onBackPressed() {
@@ -74,6 +64,7 @@ public class ImageListActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.from_left_enter, R.anim.to_right_exit);
         }
     }
+
     private void initTab(ActivityImageListBinding binding) {
 
 
@@ -84,33 +75,33 @@ public class ImageListActivity extends AppCompatActivity {
         } else if (slideKey.equals(SlideKey.SLIDE_LEFT)) {
             overridePendingTransition(R.anim.from_left_enter, R.anim.to_right_exit);
         }
-        binding.btnHomeList.setOnClickListener(new View.OnClickListener(){
+        binding.btnHomeList.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 onBackPressed();
             }
         });
-        binding.btnCallList.setOnClickListener(new View.OnClickListener(){
+        binding.btnCallList.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(ImageListActivity.this, CallActivity.class);
                 intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_LEFT);
                 startActivity(intent);
                 finish();
             }
         });
-        binding.btnSearchList.setOnClickListener(new View.OnClickListener(){
+        binding.btnSearchList.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(ImageListActivity.this, SearchActivity.class);
                 intent.putExtra(SlideKey.SLIDE_KEY, SlideKey.SLIDE_LEFT);
                 startActivity(intent);
                 finish();
             }
         });
-        binding.btnList.setOnClickListener(new View.OnClickListener(){
+        binding.btnList.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 //
             }
         });

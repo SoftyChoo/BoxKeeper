@@ -38,7 +38,6 @@ public class SearchActivity extends AppCompatActivity {
         ActivitySearchBinding binding = ActivitySearchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         // spinner
         List<String> spinnerArray = Arrays.asList(getResources().getStringArray(R.array.box_company));
         ArrayAdapter adapter = new ArrayAdapter(getBaseContext(), R.layout.spinner_search_item, spinnerArray);
@@ -57,7 +56,6 @@ public class SearchActivity extends AppCompatActivity {
         SearchRepository searchRepository = new SearchRepositoryImpl();
         SearchViewModelFactory factory = new SearchViewModelFactory(searchRepository);
         searchViewModel = new ViewModelProvider(this, factory).get(SearchViewModel.class);
-
 
         initView(binding);
         initTab(binding);
