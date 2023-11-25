@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white_grey"
+    tools:context=".ui.list.ImageListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진함"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:background="@color/transparent"
+            android:src="@drawable/baseline_refresh_24"
+            android:visibility="invisible" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_images"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/cv_tab"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/image_list_recyclerview_item"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_tab"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_home_list"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_home_unclicked"
+                app:layout_constraintBottom_toTopOf="@id/tv_home"
+                app:layout_constraintEnd_toStartOf="@id/btn_call_list"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_home"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_home_list"
+                app:layout_constraintStart_toStartOf="@id/btn_home_list"
+                app:layout_constraintTop_toBottomOf="@id/btn_home_list"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_call_list"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_call_unclicked"
+                app:layout_constraintBottom_toTopOf="@id/tv_call"
+                app:layout_constraintEnd_toStartOf="@id/btn_search_list"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/btn_home_list"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_call_list"
+                app:layout_constraintStart_toStartOf="@id/btn_call_list"
+                app:layout_constraintTop_toBottomOf="@id/btn_call_list"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_search_list"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_search_unclicked"
+                app:layout_constraintBottom_toTopOf="@id/tv_search"
+                app:layout_constraintEnd_toStartOf="@id/btn_list"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/btn_call_list"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_search_list"
+                app:layout_constraintStart_toStartOf="@id/btn_search_list"
+                app:layout_constraintTop_toBottomOf="@id/btn_search_list"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_list"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_list"
+                app:layout_constraintBottom_toTopOf="@id/tv_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/btn_search_list"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_list"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_list"
+                app:layout_constraintStart_toStartOf="@id/btn_list"
+                app:layout_constraintTop_toBottomOf="@id/btn_list"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,16 +45,6 @@
             app:layout_constraintStart_toEndOf="@id/card_view"
             app:layout_constraintTop_toTopOf="@id/card_view" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/phone_number"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="5dp"-->
-<!--            android:text="[01028179282]"-->
-<!--            android:textSize="15sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/title"-->
-<!--            app:layout_constraintStart_toEndOf="@id/title"/>-->
-
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
