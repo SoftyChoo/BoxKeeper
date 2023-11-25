@@ -12,6 +12,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 public class ImageRepositoryImpl implements ImageRepository {
 
@@ -38,6 +39,7 @@ public class ImageRepositoryImpl implements ImageRepository {
 
                     // If this is the last item, update the LiveData
                     if (imageList.size() == listResult.getItems().size()) {
+                        Collections.reverse(imageList);
                         imageListLiveData.postValue(imageList);
                     }
                 }).addOnFailureListener(e -> {
