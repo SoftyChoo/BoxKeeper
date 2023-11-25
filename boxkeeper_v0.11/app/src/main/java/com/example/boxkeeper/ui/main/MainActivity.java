@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.boxkeeper.R;
 import com.example.boxkeeper.databinding.ActivityMainBinding;
@@ -32,23 +31,7 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView sttext;
-    private ImageButton infobtn;
-    private TextView Weights;
-    private TextView Ab;
     private String changeState;
-    private ImageButton sirenBox1;
-    private ImageButton sirenBox2;
-    private ImageButton sirenBox3;
-    private ImageButton sirenBox4;
-
-    private CardView boxStateCamera1;
-
-    private ImageButton homeButton;
-    private ImageButton callButton;
-    private ImageButton searchButton;
-    private ImageButton listButton;
-
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference state_of_the_box = mRootRef.child("State_of_the_Box");
     DatabaseReference Weight = mRootRef.child("Weight");
@@ -65,23 +48,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        sttext = (TextView) findViewById(R.id.tv_box1_real_weight);
-        infobtn = (ImageButton) findViewById(R.id.btn_info);
-        Weights = (TextView) findViewById(R.id.tv_box1_plus_minus);
-        Ab = (TextView) findViewById(R.id.tv_box1_abs);
-        sirenBox1 = (ImageButton) findViewById(R.id.btn_siren1);
-        sirenBox2 = (ImageButton) findViewById(R.id.btn_siren2);
-        sirenBox3 = (ImageButton) findViewById(R.id.btn_siren3);
-        sirenBox4 = (ImageButton) findViewById(R.id.btn_siren4);
-
-        homeButton = (ImageButton) findViewById(R.id.btn_home_main);
-        callButton = (ImageButton) findViewById(R.id.btn_call_main);
-        searchButton = (ImageButton) findViewById(R.id.btn_search_main);
-        listButton = (ImageButton) findViewById(R.id.btn_list_main);
-
-        boxStateCamera1 = (CardView) findViewById(R.id.cv_box1_img);
-
-        boxStateCamera1.setOnClickListener(new View.OnClickListener() {
+        binding.cvBox1Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
@@ -96,14 +63,13 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(notificationChannel);
         }
+
+        initView(binding);
+        initSiren(binding);
+        initTab(binding);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        initSiren();
-        initTab();
-
+    private void initView(ActivityMainBinding binding) {
         state_of_the_box.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -115,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
                 //Minsu's code : 만약 state값이 -라면 사용자가 볼 수 있게 0으로 값 초기화
                 //-> 값을 측정할 때 값이 튈 때 -값이 나오는 문제를 해결하기 위한 코드
                 if (state.contains("-")) {
-                    sttext.setText("0.0");
+                    binding.tvBox1RealWeight.setText("0.0");
                 } else {
-                    sttext.setText(state);
+                    binding.tvBox1RealWeight.setText(state);
                 }
                 changeState = state;
                 showNotification();
@@ -127,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        infobtn.setOnClickListener(new View.OnClickListener() {
+        binding.btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 팝업 액티비티를 시작하는 코드
@@ -142,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 //String state = dataSnapshot.getValue(String.class);
                 String state = String.valueOf(dataSnapshot.getValue());
                 Log.e("osplog", dataSnapshot.getValue().toString());
-                Weights.setText(state);
+                binding.tvBox1PlusMinus.setText(state);
             }
 
             @Override
@@ -156,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 //String state = dataSnapshot.getValue(String.class);
                 String state = String.valueOf(dataSnapshot.getValue());
                 Log.e("osblog", dataSnapshot.getValue().toString());
-                Ab.setText(state);
+                binding.tvBox1Abs.setText(state);
             }
 
             @Override
@@ -164,17 +130,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
-    private void initTab() {
+    private void initTab(ActivityMainBinding binding) {
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
+        binding.btnHomeMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //동작없음
             }
         });
-        callButton.setOnClickListener(new View.OnClickListener() {
+        binding.btnCallMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CallActivity.class);
@@ -182,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        binding.btnSearchMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
@@ -190,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        listButton.setOnClickListener(new View.OnClickListener() {
+        binding.btnListMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ImageListActivity.class);
@@ -200,29 +167,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initSiren() {
-        sirenBox1.setOnClickListener(new View.OnClickListener() {
+    private void initSiren(ActivityMainBinding binding) {
+        binding.btnSiren1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sirenDialog(1);
+                sirenDialog(1,binding);
             }
         });
-        sirenBox2.setOnClickListener(new View.OnClickListener() {
+        binding.btnSiren2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sirenDialog(2);
+                sirenDialog(2,binding);
             }
         });
-        sirenBox3.setOnClickListener(new View.OnClickListener() {
+        binding.btnSiren3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sirenDialog(3);
+                sirenDialog(3,binding);
             }
         });
-        sirenBox4.setOnClickListener(new View.OnClickListener() {
+        binding.btnSiren4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sirenDialog(4);
+                sirenDialog(4,binding);
             }
         });
     }
@@ -236,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         buzzerRef.setValue(newValue);
     }
 
-    void sirenDialog(Integer num) {
+    void sirenDialog(Integer num,ActivityMainBinding binding) {
         AlertDialog.Builder menu = new AlertDialog.Builder(MainActivity.this);
         menu.setIcon(R.mipmap.ic_launcher);
         menu.setTitle("BOXKEEPER"); // 제목
@@ -249,19 +216,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (num) {
                     case 1: {
-                        if (sirenBox1.isSelected()) updateBuzzerValue(0);
+                        if (binding.btnSiren1.isSelected()) updateBuzzerValue(0);
                         else updateBuzzerValue(1);
-                        sirenBox1.setSelected(!sirenBox1.isSelected());
+                        binding.btnSiren1.setSelected(!binding.btnSiren1.isSelected());
                         break;
                     }
                     case 2:
-                        sirenBox2.setSelected(!sirenBox2.isSelected());
+                        binding.btnSiren2.setSelected(!binding.btnSiren2.isSelected());
                         break;
                     case 3:
-                        sirenBox3.setSelected(!sirenBox3.isSelected());
+                        binding.btnSiren3.setSelected(!binding.btnSiren3.isSelected());
                         break;
                     case 4:
-                        sirenBox4.setSelected(!sirenBox4.isSelected());
+                        binding.btnSiren4.setSelected(!binding.btnSiren4.isSelected());
                         break;
                 }
                 dialog.dismiss();
