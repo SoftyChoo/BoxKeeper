@@ -1,9 +1,6 @@
 package com.example.boxkeeper.ui.list;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -15,12 +12,9 @@ import com.example.boxkeeper.R;
 import com.example.boxkeeper.data.repository.ImageRepositoryImpl;
 import com.example.boxkeeper.databinding.ActivityImageListBinding;
 import com.example.boxkeeper.ui.call.CallActivity;
+import com.example.boxkeeper.ui.list.detail.ImageDetailDialogFragment;
 import com.example.boxkeeper.ui.search.SearchActivity;
 import com.example.boxkeeper.ui.common.SlideKey;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.util.List;
 
 public class ImageListActivity extends AppCompatActivity {
 

@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.example.boxkeeper.R;
 import com.example.boxkeeper.databinding.ActivityCallBinding;
+import com.example.boxkeeper.ui.call.edit.CallEditDialogFragment;
+import com.example.boxkeeper.ui.call.edit.CallInputType;
+import com.example.boxkeeper.ui.call.model.CallModel;
 import com.example.boxkeeper.ui.common.Key;
 import com.example.boxkeeper.ui.search.SearchActivity;
 import com.example.boxkeeper.ui.common.SlideKey;
@@ -29,7 +32,7 @@ public class CallActivity extends AppCompatActivity {
 
     private CallSharedViewModel viewModel;
 
-    private CallEditFragment callEditFragment = new CallEditFragment();
+    private CallEditDialogFragment callEditFragment = new CallEditDialogFragment();
     // ViewModelProvider에 Fragment(this)를 전달하여 ViewModel 생성
 
     private final CallListAdapter listAdapter = new CallListAdapter(
@@ -40,7 +43,7 @@ public class CallActivity extends AppCompatActivity {
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.remove(callEditFragment);
                     transaction.commit();
-                    callEditFragment = new CallEditFragment();
+                    callEditFragment = new CallEditDialogFragment();
                 }
 
                 Bundle args = new Bundle();
@@ -95,7 +98,7 @@ public class CallActivity extends AppCompatActivity {
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.remove(callEditFragment);
                     transaction.commit();
-                    callEditFragment = new CallEditFragment();
+                    callEditFragment = new CallEditDialogFragment();
                 }
 
                 Bundle args = new Bundle();

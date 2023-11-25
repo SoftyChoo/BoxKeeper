@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/transparent"
     app:cardCornerRadius="30dp"
-    tools:context=".ui.call.CallEditFragment">
+    tools:context=".ui.call.edit.CallEditDialogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="350dp"

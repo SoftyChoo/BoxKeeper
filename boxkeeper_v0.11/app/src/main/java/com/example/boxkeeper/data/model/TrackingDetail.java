@@ -1,4 +1,4 @@
-package com.example.boxkeeper.data.api;
+package com.example.boxkeeper.data.model;
 
 import java.io.Serializable;
 

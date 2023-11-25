@@ -1,5 +1,7 @@
 package com.example.boxkeeper.data.api;
 
+import com.example.boxkeeper.data.remote.SearchRemoteDataSource;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -8,7 +10,7 @@ public class retrofitClient {
 
     private static Retrofit retrofit;
 
-    public static SweetTrackerService getService() {
+    public static SearchRemoteDataSource getService() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -16,6 +18,6 @@ public class retrofitClient {
                     .build();
         }
 
-        return retrofit.create(SweetTrackerService.class);
+        return retrofit.create(SearchRemoteDataSource.class);
     }
 }

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -17,10 +16,9 @@ import com.example.boxkeeper.data.repository.SearchRepository;
 import com.example.boxkeeper.data.repository.SearchRepositoryImpl;
 import com.example.boxkeeper.databinding.ActivitySearchBinding;
 import com.example.boxkeeper.R;
-import com.example.boxkeeper.data.api.TrackingDetail;
-import com.example.boxkeeper.data.api.TrackingInfo;
+import com.example.boxkeeper.data.model.TrackingDetail;
+import com.example.boxkeeper.data.model.TrackingInfo;
 import com.example.boxkeeper.ui.common.SlideKey;
-import com.example.boxkeeper.data.api.SweetTrackerService;
 import com.example.boxkeeper.ui.call.CallActivity;
 import com.example.boxkeeper.ui.list.ImageListActivity;
 
@@ -28,12 +26,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class SearchActivity extends AppCompatActivity {

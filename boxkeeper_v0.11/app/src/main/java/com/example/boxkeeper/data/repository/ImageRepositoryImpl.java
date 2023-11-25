@@ -1,12 +1,11 @@
 package com.example.boxkeeper.data.repository;
 
-import android.net.Uri;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.boxkeeper.ui.list.ImageModel;
+import com.example.boxkeeper.ui.list.model.ImageModel;
 import com.example.boxkeeper.ui.list.ImageRepository;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;

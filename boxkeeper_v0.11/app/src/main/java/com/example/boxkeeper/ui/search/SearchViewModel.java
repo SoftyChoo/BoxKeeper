@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.boxkeeper.data.api.TrackingInfo;
+import com.example.boxkeeper.data.model.TrackingInfo;
 import com.example.boxkeeper.data.repository.SearchRepository;
 
 public class SearchViewModel extends ViewModel {
