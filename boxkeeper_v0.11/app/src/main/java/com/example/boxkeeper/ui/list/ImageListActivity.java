@@ -29,7 +29,8 @@ public class ImageListActivity extends AppCompatActivity {
     private final ImageListAdapter listAdapter = new ImageListAdapter(
             // onClick
             (item, adapterPosition) -> {
-
+                ImageDetailDialogFragment dialogFragment = ImageDetailDialogFragment.newInstance(item);
+                dialogFragment.show(getSupportFragmentManager(), "SampleDialog");
             }
     );
 

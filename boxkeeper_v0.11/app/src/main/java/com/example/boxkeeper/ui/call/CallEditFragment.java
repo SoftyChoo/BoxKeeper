@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -46,11 +48,15 @@ public class CallEditFragment extends DialogFragment {
         // View Binding 초기화
         binding = FragmentCallEditBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        initView(binding);
 
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(binding);
+    }
 
     private void initView(FragmentCallEditBinding binding) {
 

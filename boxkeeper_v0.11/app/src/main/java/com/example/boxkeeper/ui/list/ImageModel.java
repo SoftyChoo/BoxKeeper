@@ -16,9 +16,11 @@ public class ImageModel implements Parcelable {
         this.time = time;
     }
 
+
     protected ImageModel(Parcel in) {
         imageUrl = in.readString();
         date = in.readString();
+        time = in.readString();
     }
 
     public String getImageUrl() {
@@ -66,5 +68,6 @@ public class ImageModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(imageUrl);
         dest.writeString(date);
+        dest.writeString(time);
     }
 }

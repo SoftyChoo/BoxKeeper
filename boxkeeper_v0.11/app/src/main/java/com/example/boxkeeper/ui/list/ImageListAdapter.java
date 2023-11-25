@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.example.boxkeeper.databinding.ImageListRecyclerviewItemBinding;
+import com.example.boxkeeper.ui.util.DateTimeUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -71,7 +72,7 @@ public class ImageListAdapter extends ListAdapter<ImageModel, ImageListAdapter.V
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onClick.onItemClick(getItem(getAdapterPosition()),getAdapterPosition());
+                    onClick.onItemClick(getItem(getAdapterPosition()), getAdapterPosition());
                 }
             });
         }
@@ -90,25 +91,12 @@ public class ImageListAdapter extends ListAdapter<ImageModel, ImageListAdapter.V
                     .placeholder(circularProgressDrawable)
                     .into(binding.ivImage);
 
+            // parsing, formatting
+            String formattedDate = DateTimeUtils.formatDate(item.getDate());
+            String formattedTime = DateTimeUtils.formatTime(item.getTime());
 
-            try {
-                // 날짜, 시간 데이터 파싱
-                SimpleDateFormat inputDateFormat = new SimpleDateFormat("MMddyy", Locale.getDefault());
-                SimpleDateFormat inputTimeFormat = new SimpleDateFormat("HHmmss", Locale.getDefault());
-                Date parsedDate = inputDateFormat.parse(item.getDate());
-                Date parsedTime = inputTimeFormat.parse(item.getTime());
-
-                // 날짜, 시간 데이터 포맷
-                SimpleDateFormat outputDateFormat = new SimpleDateFormat("yy년 MM월 dd일", Locale.getDefault());
-                SimpleDateFormat outputTimeFormat = new SimpleDateFormat("HH시 mm분 ss초", Locale.getDefault());
-                String formattedDate = outputDateFormat.format(parsedDate);
-                String formattedTime = outputTimeFormat.format(parsedTime);
-
-                binding.tvDateData.setText(formattedDate);
-                binding.tvTimeData.setText(formattedTime);
-            }catch (ParseException e) {
-                e.printStackTrace();
-            }
+            binding.tvDateData.setText(formattedDate);
+            binding.tvTimeData.setText(formattedTime);
         }
     }
 }
