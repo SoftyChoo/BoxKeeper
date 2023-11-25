@@ -8,6 +8,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_contact">연락처</string>
+    <string name="detail_image_title">사진 세부 정보</string>
     <string name="input_user_name">Username or nickname</string>
     <string name="input_user_phone">Mobile number</string>
     <string name="btn_submit">SUBMIT</string>
