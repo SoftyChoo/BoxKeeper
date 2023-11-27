@@ -1,11 +1,13 @@
-package com.example.boxkeeper.data.api;
+package com.example.boxkeeper.data.remote;
+
+import com.example.boxkeeper.data.model.TrackingInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 // api 요청용 interface
-public interface SweetTrackerService {
+public interface SearchRemoteDataSource {
     @GET("/api/v1/trackingInfo")
     Call<TrackingInfo> getTrackingInfo(
             @Query("t_key") String apiKey,

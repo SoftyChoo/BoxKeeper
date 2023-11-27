@@ -1,6 +1,5 @@
 package com.example.boxkeeper.ui.list;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +13,8 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.example.boxkeeper.databinding.ImageListRecyclerviewItemBinding;
+import com.example.boxkeeper.ui.list.model.ImageModel;
 import com.example.boxkeeper.ui.util.DateTimeUtils;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Locale;
 
 public class ImageListAdapter extends ListAdapter<ImageModel, ImageListAdapter.ViewHolder> {
 

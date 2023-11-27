@@ -1,4 +1,4 @@
-package com.example.boxkeeper.ui.call;
+package com.example.boxkeeper.ui.call.edit;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,19 +16,21 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.boxkeeper.databinding.FragmentCallEditBinding;
+import com.example.boxkeeper.ui.call.CallSharedViewModel;
+import com.example.boxkeeper.ui.call.model.CallModel;
 import com.example.boxkeeper.ui.common.Key;
 
 import java.util.Objects;
 
-public class CallEditFragment extends DialogFragment {
+public class CallEditDialogFragment extends DialogFragment {
     private FragmentCallEditBinding binding; // View Binding 추가
     private CallSharedViewModel viewModel;
 
 
     private String TAG = "CallEditFragment";
 
-    public static CallEditFragment newInstance() {
-        CallEditFragment fragment = new CallEditFragment();
+    public static CallEditDialogFragment newInstance() {
+        CallEditDialogFragment fragment = new CallEditDialogFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

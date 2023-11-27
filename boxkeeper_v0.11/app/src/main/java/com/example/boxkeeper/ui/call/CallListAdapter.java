@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.boxkeeper.databinding.CallRecyclerviewItemBinding;
+import com.example.boxkeeper.ui.call.model.CallModel;
 
 public class CallListAdapter extends ListAdapter<CallModel, CallListAdapter.ViewHolder> {
 

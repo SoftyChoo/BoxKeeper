@@ -1,7 +1,5 @@
-package com.example.boxkeeper.ui.list;
+package com.example.boxkeeper.ui.list.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.os.Parcel;
 import android.os.Parcelable;
 

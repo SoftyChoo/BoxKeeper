@@ -1,4 +1,4 @@
-package com.example.boxkeeper.ui.list;
+package com.example.boxkeeper.ui.list.detail;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import android.view.LayoutInflater;
@@ -16,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.boxkeeper.databinding.FragmentImageDetailBinding;
+import com.example.boxkeeper.ui.list.model.ImageModel;
 import com.example.boxkeeper.ui.util.DateTimeUtils;
 
 import java.util.Objects;

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.boxkeeper.R;
 import com.example.boxkeeper.databinding.SearchRecyclerviewItemBinding;
-import com.example.boxkeeper.data.api.TrackingDetail;
+import com.example.boxkeeper.data.model.TrackingDetail;
 
 public class SearchListAdapter extends ListAdapter<TrackingDetail, SearchListAdapter.ViewHolder> {
 
