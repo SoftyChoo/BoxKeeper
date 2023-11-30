@@ -11,6 +11,7 @@ import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageButton;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference state_of_the_box = mRootRef.child("State_of_the_Box");
     DatabaseReference Weight = mRootRef.child("Weight");
     DatabaseReference Abs = mRootRef.child("Abs");
+
+    private final Handler handler = new Handler();
 
     private static final String FIREBASE_DATABASE_URL = "https://boxkeeper-f0938-default-rtdb.firebaseio.com/";
 
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder menu = new AlertDialog.Builder(MainActivity.this);
         menu.setIcon(R.mipmap.ic_launcher);
         menu.setTitle("BOXKEEPER"); // 제목
-        menu.setMessage(num + "번째 상자 사이렌의 상태를 변경하시겠습니까?"); // 문구
+        menu.setMessage(num + "번째 상자 사이렌을 울리시겠습니까?"); // 문구
         menu.setIcon(R.drawable.box);
 
         // 확인 버튼
@@ -219,6 +222,15 @@ public class MainActivity extends AppCompatActivity {
                         if (binding.btnSiren1.isSelected()) updateBuzzerValue(0);
                         else updateBuzzerValue(1);
                         binding.btnSiren1.setSelected(!binding.btnSiren1.isSelected());
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (binding.btnSiren1.isSelected()) updateBuzzerValue(0);
+                                else updateBuzzerValue(1);
+                                binding.btnSiren1.setSelected(!binding.btnSiren1.isSelected());
+                            }
+                        }, 12000);
                         break;
                     }
                     case 2:

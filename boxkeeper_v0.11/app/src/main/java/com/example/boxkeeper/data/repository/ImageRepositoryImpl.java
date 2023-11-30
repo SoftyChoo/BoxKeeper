@@ -30,8 +30,12 @@ public class ImageRepositoryImpl implements ImageRepository {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     // Extract date and time from the file name
                     String fileName = item.getName();
-                    String date = fileName.substring(4, 12);
-                    String time = fileName.substring(13, 19);
+//                    String date = fileName.substring(4, 12);
+//                    String time = fileName.substring(13, 19);
+
+                    String date = fileName.substring(0, 4) + fileName.substring(5, 7) + fileName.substring(8, 10);
+                    String time = fileName.substring(11, 13) + fileName.substring(14, 16) + fileName.substring(17, 19);
+//                    2023-11-30_21-28-33
 
                     ImageModel imageModel = new ImageModel(uri.toString(), date, time);
                     imageList.add(imageModel);

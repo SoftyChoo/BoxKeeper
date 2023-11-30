@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.boxkeeper.R;
 import com.example.boxkeeper.data.repository.ImageRepositoryImpl;
@@ -46,10 +47,19 @@ public class ImageListActivity extends AppCompatActivity {
 
         binding.rvImages.setLayoutManager(new LinearLayoutManager(this));
         binding.rvImages.setAdapter(listAdapter);
+
+        binding.btnRefresh.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                viewModel.loadImageList();{
+                    binding.rvImages.smoothScrollToPosition(0);
+                };
+                Toast.makeText(getBaseContext(), "새로고침 되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initViewModel(ActivityImageListBinding binding) {
-
         viewModel.getImageListLiveData().observe(this, imageModels -> {
             listAdapter.submitList(imageModels);
             binding.progressBar.setVisibility(View.GONE);

@@ -10,11 +10,15 @@ import java.util.List;
 public class ImageViewModel extends ViewModel {
 
     private final ImageRepository repository;
-    private final LiveData<List<ImageModel>> imageListLiveData;
+    private LiveData<List<ImageModel>> imageListLiveData;
 
     public ImageViewModel(ImageRepository repository) {
         this.repository = repository;
         this.imageListLiveData = repository.getImageList();
+    }
+
+    public void loadImageList(){
+        imageListLiveData = repository.getImageList();
     }
 
     public LiveData<List<ImageModel>> getImageListLiveData() {
