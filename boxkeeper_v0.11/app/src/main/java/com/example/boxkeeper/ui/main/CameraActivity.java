@@ -34,6 +34,9 @@ public class CameraActivity extends AppCompatActivity {
         mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
         mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
 //        mWebView.loadUrl("192.168.202.225:8090/stream.html");
-        mWebView.loadUrl("192.168.202.225:8090/?action=stream");
+//        mWebView.loadUrl("192.168.93.225:8090/?action=stream");
+//        mWebView.loadUrl("172.20.10.2:8082/");
+//        http://172.20.10.2:8082/
+//        ?action=stream
     }
 }

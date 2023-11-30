@@ -7,9 +7,10 @@ import java.util.Locale;
 
 public class DateTimeUtils {
 
-    private static final String INPUT_DATE_FORMAT = "MMddyy";
+//    private static final String INPUT_DATE_FORMAT = "MMddyy";
+    private static final String INPUT_DATE_FORMAT = "yyyymmdd";
     private static final String INPUT_TIME_FORMAT = "HHmmss";
-    private static final String OUTPUT_DATE_FORMAT = "yy년 MM월 dd일";
+    private static final String OUTPUT_DATE_FORMAT = "yyyy년 mm월 dd일";
     private static final String OUTPUT_TIME_FORMAT = "HH시 mm분 ss초";
 
     public static String formatDate(String inputDate) {

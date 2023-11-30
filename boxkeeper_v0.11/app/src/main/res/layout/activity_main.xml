@@ -84,6 +84,15 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Home"/>
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -200,6 +209,16 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Store"/>
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -238,7 +257,7 @@
                         android:id="@+id/tv_box2_real_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box2_weight"
@@ -263,7 +282,6 @@
                         android:id="@+id/tv_box2_plus_minus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView "
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box2_i_d"
@@ -274,7 +292,7 @@
                         android:id="@+id/tv_box2_abs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="abs"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box2_plus_minus"
@@ -314,6 +332,15 @@
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Office"/>
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -352,7 +379,7 @@
                         android:id="@+id/tv_box3_real_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box3_weight"
@@ -377,7 +404,6 @@
                         android:id="@+id/tv_box3_plus_minus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView "
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box3_i_d"
@@ -388,7 +414,7 @@
                         android:id="@+id/tv_box3_abs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="abs"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box3_plus_minus"
@@ -416,7 +442,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginStart="20dp"
-                        android:backgroundTint="@color/background_white_grey"
+                        android:backgroundTint="@color/light_blue"
                         androidx:cardCornerRadius="70dp"
                         androidx:layout_constraintBottom_toBottomOf="parent"
                         androidx:layout_constraintStart_toStartOf="parent"
@@ -427,6 +453,15 @@
                             android:layout_height="match_parent"
                             android:layout_margin="12dp"
                             android:src="@drawable/box" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Store2"/>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -465,7 +500,7 @@
                         android:id="@+id/tv_box4_real_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box4_weight"
@@ -490,7 +525,6 @@
                         android:id="@+id/tv_box4_plus_minus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView "
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box4_i_d"
@@ -501,7 +535,7 @@
                         android:id="@+id/tv_box4_abs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="abs"
+                        android:text="0.0"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_box4_plus_minus"
